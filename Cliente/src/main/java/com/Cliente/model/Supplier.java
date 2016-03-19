@@ -1,7 +1,6 @@
 package com.Cliente.model;
 
-import java.util.Set;
-
+import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -24,7 +23,7 @@ public class Supplier {
 	private String name;
 
 	@JsonBackReference
-	private Set<Product> products;
+	private List<Product> products;
 
 	public Supplier(String code, String name)
 	{
@@ -55,11 +54,11 @@ public class Supplier {
 		this.name = name;
 	}
 
-	public Set<Product> getProduct() {
+	public List<Product> getProduct() {
 		return products;
 	}
 
-	public void setProduct(Set<Product> products) {
+	public void setProduct(List<Product> products) {
 		this.products = products;
 	}
 }

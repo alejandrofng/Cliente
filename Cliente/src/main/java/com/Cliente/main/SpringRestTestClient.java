@@ -23,7 +23,7 @@ public class SpringRestTestClient {
          
         if(SuppliersMap!=null){
             for(LinkedHashMap<String, Object> map : SuppliersMap){
-                System.out.println("Supplier : id="+map.get("id")+", Name="+map.get("name")+", Code="+map.get("code"));
+                System.out.println("Supplier : Id="+map.get("id")+", name="+map.get("name")+", Code="+map.get("code"));
             }
         }else{
             System.out.println("No Supplier exist----------");
@@ -34,8 +34,8 @@ public class SpringRestTestClient {
     private static void getSupplier(){
         System.out.println("Testing getSupplier API----------");
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Supplier> supplier = restTemplate.getForEntity(REST_SERVICE_URI+"/supplier/1", Supplier.class);
-        System.out.println(supplier);
+        ResponseEntity<Supplier> supplier = restTemplate.getForEntity(REST_SERVICE_URI+"/supplier/{id}", Supplier.class,1);
+        System.out.println(supplier.getBody());
     }
      
     /* POST */
@@ -74,12 +74,12 @@ public class SpringRestTestClient {
  
     public static void main(String args[]){
         listAllSuppliers();
-        getSupplier();
-        createSupplier();
+       getSupplier();
+        /*createSupplier();
        listAllSuppliers();
         updateSupplier();
         listAllSuppliers();
         deleteSupplier();
-        listAllSuppliers();
+        listAllSuppliers();*/
     }
 }
