@@ -26,6 +26,11 @@ public class Supplier {
 	@JsonBackReference
 	private Set<Product> products;
 
+	public Supplier(String code, String name)
+	{
+		this.code=code;
+		this.name=name;
+	}
 	public long getId() {
 		return id;
 	}
