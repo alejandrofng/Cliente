@@ -15,10 +15,10 @@ public class SpringRestTestClient {
         System.out.println("Testing listAllSuppliers API-----------");
          
         RestTemplate restTemplate = new RestTemplate();
-        List<LinkedHashMap<String, Object>> usersMap = restTemplate.getForObject(REST_SERVICE_URI+"/supplier/", List.class);
+        List<LinkedHashMap<String, Object>> SuppliersMap = restTemplate.getForObject(REST_SERVICE_URI+"/supplier", List.class);
          
-        if(usersMap!=null){
-            for(LinkedHashMap<String, Object> map : usersMap){
+        if(SuppliersMap!=null){
+            for(LinkedHashMap<String, Object> map : SuppliersMap){
                 System.out.println("Supplier : id="+map.get("id")+", Name="+map.get("name")+", Code="+map.get("code"));
             }
         }else{
